@@ -12,5 +12,21 @@ public class CustomListTest {
         assertTrue(list.hasCity(calgary));
     }
 
+    @Test
+    public void testDeleteCity() {
+        CustomList list = new CustomList();
+        City city = new City("Edmonton", "AB");
+        list.addCity(city);
+
+        // Ensure it's there first
+        assertTrue(list.hasCity(city));
+
+        // This will cause a compilation error initially (The "Red" phase)
+        list.deleteCity(city);
+
+        // Verify it's gone
+        assertFalse(list.hasCity(city));
+    }
+
 
 }
